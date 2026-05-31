@@ -1,0 +1,12 @@
+# Normalize line endings: store LF in the repo, check out LF everywhere.
+# Keeps the C sources / Makefile / .ber maps Unix-clean for Linux grading.
+* text=auto eol=lf
+
+# Treat these as binary (never touch line endings)
+*.tgz   binary
+*.jpg   binary
+*.jpeg  binary
+*.png   binary
+*.gif   binary
+*.pdf   binary
+*.xpm   text eol=lf

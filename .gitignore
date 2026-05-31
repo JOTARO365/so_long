@@ -1,0 +1,33 @@
+# ─── Build artifacts ──────────────────────────────────────────
+*.o
+*.a
+*.d
+
+# Compiled binaries
+/so_long
+/so_long_bonus
+
+# ─── Third-party / heavy files ────────────────────────────────
+# MiniLibX is rebuilt locally from the tarball (the .tgz is kept/committed),
+# so the extracted source tree itself is not tracked.
+minilibx-linux/
+!minilibx-linux.tgz
+minilibx_macos_metal.tgz
+minilibx_macos_opengl.tgz
+
+# ─── Reference material (kept on disk, not committed) ──────────
+en.subject.pdf
+CLAUDE.md
+docs/*.jpg
+docs/*.gif
+
+# ─── Dev-only generation assets (kept on disk, not committed) ──
+assets/
+fix_headers.py
+
+# ─── Tooling / editor / OS junk ───────────────────────────────
+.claude/
+.DS_Store
+*.swp
+*~
+*.bak
