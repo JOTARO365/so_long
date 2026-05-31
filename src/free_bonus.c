@@ -38,7 +38,7 @@ void	free_game(t_game *game)
 	game->map.grid = NULL;
 	if (game->mlx)
 	{
-		while (i < 7)
+		while (i < 8)
 		{
 			if (game->img[i])
 				mlx_destroy_image(game->mlx, game->img[i]);

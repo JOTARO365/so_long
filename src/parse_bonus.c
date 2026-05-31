@@ -73,6 +73,8 @@ static void	scan_tile(t_game *game, int x, int y)
 		game->map.players++;
 		game->map.grid[y][x] = '0';
 	}
+	else if (c == 'N')
+		add_enemy(game, x, y);
 	else if (c != '0' && c != '1')
 		error_exit(game, "Invalid characters in map.");
 }

@@ -1,131 +1,104 @@
+*This project has been created as part of the 42 curriculum by wiaon-in.*
+
 # so_long
 
-A small 2D game built with **MiniLibX** for the 42 curriculum.
-The player explores a tile map, **collects every item**, then heads for the
-**exit**. This repo ships both the mandatory grid game and a **bonus
-platformer** with gravity, jumping, animated sprites and a scrolling camera —
-plus **100 difficulty-scaled levels**.
+## Description
 
----
+**so_long** is a small 2D game built with the **MiniLibX** graphics library.
+The player moves around a tile-based map, must **collect every collectible**,
+and then reach the **exit** to win. Each move is counted and printed to the
+shell.
 
-## Build
+This repository contains two versions:
 
-Requirements: a C compiler, `make`, and the Linux MiniLibX dependencies
-(`libxext-dev`, `libxext`, `libx11-dev`, `libbsd-dev`). MiniLibX itself is
-built locally from the bundled `minilibx-linux.tgz`.
+- **Mandatory** (`so_long`) — a top-down grid game. The player moves up / down /
+  left / right with the keyboard, cannot walk through walls, and wins by
+  collecting all items then stepping on the exit.
+- **Bonus** (`so_long_bonus`) — a side-view platformer with gravity and jumping,
+  frame-based **sprite animation**, an on-screen **move counter** (drawn in the
+  window, not only the shell), and a **scrolling camera** for large maps. It
+  ships with **100 difficulty-scaled levels** (`maps/level1.ber` …
+  `maps/level100.ber`).
+
+Maps are plain-text `.ber` files made of these tiles:
+
+| Char | Meaning      |
+|------|--------------|
+| `0`  | empty space  |
+| `1`  | wall         |
+| `C`  | collectible  |
+| `E`  | exit         |
+| `P`  | player start |
+
+A map is valid only if it is rectangular, fully surrounded by walls, has
+exactly one `P`, exactly one `E`, at least one `C`, and a valid path from `P`
+to every `C` and to the `E`. Any invalid map prints `Error\n` followed by an
+explicit message and exits cleanly.
+
+## Instructions
+
+### Requirements
+
+- A C compiler (`cc`/`gcc`) and `make`.
+- Linux MiniLibX dependencies: `xorg`, `libxext-dev`, `libbsd-dev`
+  (e.g. `sudo apt install xorg libxext-dev libbsd-dev`).
+
+MiniLibX is built locally from the bundled `minilibx-linux.tgz`; the extracted
+`minilibx-linux/` tree is git-ignored and re-created by the Makefile when
+missing.
+
+### Compilation
 
 ```sh
-make           # build the mandatory game  -> ./so_long
+make           # build the mandatory game   -> ./so_long
 make bonus     # build the bonus platformer -> ./so_long_bonus
 make clean     # remove object files
 make fclean    # remove objects + binaries
 make re        # fclean + all
 ```
 
-Compiled with `-Wall -Wextra -Werror`, linked against
+Build flags: `-Wall -Wextra -Werror`. Link flags:
 `-lmlx_Linux -lXext -lX11 -lm`.
 
-> The extracted `minilibx-linux/` source tree is git-ignored; if it's missing
-> the Makefile re-extracts and builds it from `minilibx-linux.tgz`.
-
----
-
-## Run
+### Execution
 
 ```sh
-./so_long       maps/level1.ber     # mandatory grid version
+./so_long       maps/level1.ber     # mandatory version
 ./so_long_bonus maps/level1.ber     # bonus platformer
 ```
 
-### Controls (bonus)
+### Controls
 
-| Key | Action |
-|-----|--------|
-| `A` / `←` | move left |
-| `D` / `→` | move right |
-| `W` / `↑` / `Space` | jump |
-| `ESC` | quit |
-| window close button | quit cleanly |
+| Key                  | Mandatory        | Bonus            |
+|----------------------|------------------|------------------|
+| `W` / `↑`            | move up          | jump             |
+| `S` / `↓`            | move down        | —                |
+| `A` / `←`            | move left        | move left        |
+| `D` / `→`            | move right       | move right       |
+| `Space`              | —                | jump             |
+| `ESC`                | quit cleanly     | quit cleanly     |
+| window close button  | quit cleanly     | quit cleanly     |
 
-You can move **while jumping**, so jumps carry you forward. The number of
-moves is printed to the terminal and drawn on the window.
+In the bonus version you can move while jumping, so jumps carry the player
+forward.
 
----
+## Resources
 
-## Map format (`.ber`)
+- [42 so_long subject](en.subject.pdf) — project requirements.
+- [MiniLibX documentation](https://harm-smits.github.io/42docs/libs/minilibx)
+  and the official man pages bundled in `minilibx-linux/`.
+- Personal `libft` (in `libft/`) for standard helpers and `ft_printf`.
 
-A map is a rectangular grid, fully surrounded by walls, using these tiles:
+### Use of AI
 
-| Char | Meaning |
-|------|---------|
-| `0` | empty space |
-| `1` | wall / platform |
-| `C` | collectible |
-| `E` | exit |
-| `P` | player start |
+AI (Claude Code) was used as an assistant during development for the following
+tasks:
 
-A map is **valid** only if it is rectangular, wall-bordered, has exactly one
-`P`, exactly one `E`, at least one `C`, and every `C`/`E` is reachable from `P`
-(checked with a flood fill). Any invalid map prints `Error\n` and exits.
+- Explaining the MiniLibX event/hook system while debugging keyboard input.
+- Helping implement and tune the bonus jump/gravity physics.
+- Generating and validating the 100 difficulty-scaled bonus maps in `maps/`.
+- Setting up the Git repository, `.gitignore`/`.gitattributes`, and this
+  README.
 
-```
-1111111111111111111
-1P00000000000000001
-100011000C001110001
-100010000000000C001
-1001110000111000001
-1000000000000000001
-100000C000000000001
-1000001111100000001
-1000000000000000E01
-1111111111111111111
-```
-
----
-
-## Levels
-
-`maps/` holds **100 numbered levels** (`level1.ber` … `level100.ber`) plus a
-tiny `small.ber`. Difficulty ramps up steadily:
-
-| Level | Size | Collectibles |
-|-------|------|--------------|
-| 2   | 9×6     | 1  |
-| 25  | 17×8    | 5  |
-| 50  | 32×10   | 9  |
-| 75  | 69×13   | 13 |
-| 100 | 147×15  | 17 |
-
-In the bonus platformer, elevated collectibles sit on staircases of platforms;
-every level is reachable using the jump physics, and larger maps scroll with a
-camera that follows the player.
-
----
-
-## Project layout
-
-```
-so_long/
-├── Makefile
-├── so_long.h / so_long_bonus.h   # structs, defines, prototypes
-├── src/
-│   ├── main.c       / main_bonus.c       # init, hooks, game loop
-│   ├── parse.c      / parse_bonus.c      # read & build the .ber map
-│   ├── validate.c   / validate_bonus.c   # flood-fill reachability
-│   ├── render.c     / render_bonus.c     # draw tiles / sprites / HUD
-│   ├── player.c     / player_bonus.c     # input & movement
-│   ├──               physics_bonus.c     # gravity & jumping (bonus)
-│   ├── error.c      / error_bonus.c      # error messages + clean exit
-│   └── free.c       / free_bonus.c       # free all memory
-├── textures/        # XPM sprites
-├── maps/            # level1..level100 + small.ber
-├── libft/           # reused standard-library functions
-└── minilibx-linux.tgz
-```
-
----
-
-## Notes
-
-All `.c`/`.h` files follow the 42 **norm** (norminette-clean). Error paths
-free their memory and exit cleanly, so the game is leak-free under `valgrind`.
+All code was reviewed, tested, and kept norm-compliant (norminette) by the
+author; design decisions and final implementation remain the author's own.

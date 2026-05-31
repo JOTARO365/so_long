@@ -27,6 +27,7 @@ static int	game_loop(t_game *game)
 		game->move_tick = 0;
 		player_move_tick(game);
 	}
+	update_enemies(game);
 	game->anim_tick++;
 	if (game->anim_tick >= ANIM_SPEED)
 	{

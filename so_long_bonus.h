@@ -28,6 +28,8 @@
 # define JUMP_V		20
 # define GRAVITY_V	1
 # define MAX_FALL_V	20
+# define MAX_ENEMIES	64
+# define ENEMY_SPEED	10
 
 # define IMG_WALL	0
 # define IMG_FLOOR	1
@@ -36,6 +38,7 @@
 # define IMG_COIN	4
 # define IMG_COIN2	5
 # define IMG_EXIT	6
+# define IMG_ENEMY	7
 
 # define KEY_W		119
 # define KEY_A		97
@@ -58,11 +61,18 @@ typedef struct s_map
 	int		players;
 }	t_map;
 
+typedef struct s_enemy
+{
+	int	x;
+	int	y;
+	int	dir;
+}	t_enemy;
+
 typedef struct s_game
 {
 	void	*mlx;
 	void	*win;
-	void	*img[7];
+	void	*img[8];
 	t_map	map;
 	int		px;
 	int		py;
@@ -78,6 +88,9 @@ typedef struct s_game
 	int		key_left;
 	int		key_right;
 	int		move_tick;
+	t_enemy	enemies[MAX_ENEMIES];
+	int		n_enemies;
+	int		enemy_tick;
 }	t_game;
 
 /* parse_bonus.c */
@@ -98,6 +111,11 @@ void	player_move_tick(t_game *game);
 
 /* physics_bonus.c */
 void	apply_gravity(t_game *game);
+
+/* enemy_bonus.c */
+void	add_enemy(t_game *game, int x, int y);
+void	update_enemies(t_game *game);
+void	draw_enemies(t_game *game);
 
 /* error_bonus.c */
 void	error_exit(t_game *game, char *msg);

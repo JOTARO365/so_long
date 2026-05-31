@@ -31,10 +31,12 @@ void	load_textures(t_game *game)
 			"textures/collect2.xpm", &w, &h);
 	game->img[IMG_EXIT] = mlx_xpm_file_to_image(game->mlx,
 			"textures/exit.xpm", &w, &h);
+	game->img[IMG_ENEMY] = mlx_xpm_file_to_image(game->mlx,
+			"textures/enemy.xpm", &w, &h);
 	if (!game->img[IMG_WALL] || !game->img[IMG_FLOOR]
 		|| !game->img[IMG_PLAY] || !game->img[IMG_PLAY2]
 		|| !game->img[IMG_COIN] || !game->img[IMG_COIN2]
-		|| !game->img[IMG_EXIT])
+		|| !game->img[IMG_EXIT] || !game->img[IMG_ENEMY])
 		error_exit(game, "Failed to load textures.");
 }
 
@@ -116,6 +118,7 @@ void	render_map(t_game *game)
 		}
 		y++;
 	}
+	draw_enemies(game);
 	mlx_put_image_to_window(game->mlx, game->win,
 		game->img[IMG_PLAY + game->anim_frame],
 		(game->px - game->cam_x) * TILE,
