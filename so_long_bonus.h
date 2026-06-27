@@ -79,6 +79,7 @@ typedef struct s_game
 	int		py_px;
 	int		collected;
 	int		moves;
+	int		level;
 	int		grav_tick;
 	int		anim_tick;
 	int		anim_frame;
@@ -122,5 +123,14 @@ void	error_exit(t_game *game, char *msg);
 
 /* free_bonus.c */
 void	free_game(t_game *game);
+void	free_grid(char **grid);
+
+/* main_bonus.c */
+void	open_window(t_game *game);
+
+/* level_bonus.c */
+int		get_start_level(char *file);
+void	start_level(t_game *game);
+void	next_level(t_game *game);
 
 #endif

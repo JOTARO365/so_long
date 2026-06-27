@@ -12,7 +12,7 @@
 
 #include "so_long_bonus.h"
 
-static void	free_grid(char **grid)
+void	free_grid(char **grid)
 {
 	int	i;
 

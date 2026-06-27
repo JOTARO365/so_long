@@ -52,9 +52,14 @@ static void	check_tile(t_game *game)
 	}
 	else if (tile == 'E' && game->collected >= game->map.collectibles)
 	{
-		ft_printf("You win! Moves: %d\n", game->moves);
-		free_game(game);
-		exit(0);
+		if (game->level <= 0)
+		{
+			ft_printf("You win! Moves: %d\n", game->moves);
+			free_game(game);
+			exit(0);
+		}
+		ft_printf("Level %d clear! Moves: %d\n", game->level, game->moves);
+		next_level(game);
 	}
 }
 

@@ -19,6 +19,7 @@ SRCS_BONUS	= src/main_bonus.c \
 			  src/player_bonus.c \
 			  src/physics_bonus.c \
 			  src/enemy_bonus.c \
+			  src/level_bonus.c \
 			  src/error_bonus.c \
 			  src/free_bonus.c
 

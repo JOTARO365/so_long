@@ -40,12 +40,18 @@ static int	game_loop(t_game *game)
 
 static void	init_mlx(t_game *game)
 {
-	int	win_w;
-	int	win_h;
-
 	game->mlx = mlx_init();
 	if (!game->mlx)
 		error_exit(game, "mlx_init failed.");
+}
+
+void	open_window(t_game *game)
+{
+	int	win_w;
+	int	win_h;
+
+	if (game->win)
+		mlx_destroy_window(game->mlx, game->win);
 	win_w = game->map.width * TILE;
 	win_h = game->map.height * TILE;
 	if (win_w > WIN_W)
@@ -55,6 +61,9 @@ static void	init_mlx(t_game *game)
 	game->win = mlx_new_window(game->mlx, win_w, win_h, "So Long");
 	if (!game->win)
 		error_exit(game, "mlx_new_window failed.");
+	mlx_hook(game->win, 2, 1L << 0, handle_key, game);
+	mlx_hook(game->win, 3, 1L << 1, handle_key_release, game);
+	mlx_hook(game->win, 17, 0, handle_close, game);
 }
 
 int	main(int ac, char **av)
@@ -67,14 +76,13 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	ft_bzero(&game, sizeof(t_game));
+	game.level = get_start_level(av[1]);
 	parse_map(&game, av[1]);
 	validate_map(&game);
 	init_mlx(&game);
 	load_textures(&game);
+	open_window(&game);
 	render_map(&game);
-	mlx_hook(game.win, 2, 1L << 0, handle_key, &game);
-	mlx_hook(game.win, 3, 1L << 1, handle_key_release, &game);
-	mlx_hook(game.win, 17, 0, handle_close, &game);
 	mlx_loop_hook(game.mlx, game_loop, &game);
 	mlx_loop(game.mlx);
 	return (0);
