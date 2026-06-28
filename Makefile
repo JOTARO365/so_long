@@ -2,7 +2,11 @@ NAME		= so_long
 NAME_BONUS	= so_long_bonus
 
 CC		= cc
-CFLAGS		= -Wall -Wextra -Werror -I. -Iminilibx-linux -Ilibft
+
+MLX_DIR		= minilibx-linux
+MLX_REPO	= https://github.com/42Paris/minilibx-linux.git
+
+CFLAGS		= -Wall -Wextra -Werror -I. -I$(MLX_DIR) -Ilibft
 
 SRCS		= src/main.c \
 			  src/parse.c \
@@ -27,16 +31,17 @@ OBJS		= $(SRCS:.c=.o)
 OBJS_BONUS	= $(SRCS_BONUS:.c=.o)
 
 LIBFT		= libft/libft.a
-LIBMLX		= minilibx-linux/libmlx_Linux.a
+LIBMLX		= $(MLX_DIR)/libmlx_Linux.a
 
-LDFLAGS		= -Lminilibx-linux -lmlx_Linux -lXext -lX11 -lm
+LDFLAGS		= -L$(MLX_DIR) -lmlx_Linux -lXext -lX11 -lm
 
 all: $(LIBMLX) $(LIBFT) $(NAME)
 
 bonus: $(LIBMLX) $(LIBFT) $(NAME_BONUS)
 
 $(LIBMLX):
-	-make -C minilibx-linux
+	@test -d $(MLX_DIR) || git clone --depth 1 $(MLX_REPO) $(MLX_DIR)
+	-make -C $(MLX_DIR)
 	@test -f $@ || (echo "Error: minilibx build failed" && exit 1)
 
 $(LIBFT):
