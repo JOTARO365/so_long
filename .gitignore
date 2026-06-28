@@ -8,10 +8,10 @@
 /so_long_bonus
 
 # ─── Third-party / heavy files ────────────────────────────────
-# MiniLibX is rebuilt locally from the tarball (the .tgz is kept/committed),
-# so the extracted source tree itself is not tracked.
+# MiniLibX is git-cloned at build time by the Makefile (from 42Paris),
+# so neither the extracted source tree nor the tarballs are tracked.
 minilibx-linux/
-!minilibx-linux.tgz
+minilibx-linux.tgz
 minilibx_macos_metal.tgz
 minilibx_macos_opengl.tgz
 
