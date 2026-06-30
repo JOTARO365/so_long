@@ -58,8 +58,11 @@ static void	try_move(t_game *game, int dx, int dy)
 	render_map(game);
 }
 
-int	handle_key(int key, t_game *game)
+int	handle_key(int key, void *param)
 {
+	t_game	*game;
+
+	game = (t_game *)param;
 	if (key == KEY_ESC)
 	{
 		free_game(game);

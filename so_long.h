@@ -74,7 +74,7 @@ void	load_textures(t_game *game);
 void	render_map(t_game *game);
 
 /* player.c */
-int		handle_key(int key, t_game *game);
+int		handle_key(int key, void *param);
 int		handle_close(t_game *game);
 
 /* error.c */
