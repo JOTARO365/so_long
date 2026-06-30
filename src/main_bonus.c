@@ -47,18 +47,7 @@ static void	init_mlx(t_game *game)
 
 void	open_window(t_game *game)
 {
-	int	win_w;
-	int	win_h;
-
-	if (game->win)
-		mlx_destroy_window(game->mlx, game->win);
-	win_w = game->map.width * TILE;
-	win_h = game->map.height * TILE;
-	if (win_w > WIN_W)
-		win_w = WIN_W;
-	if (win_h > WIN_H)
-		win_h = WIN_H;
-	game->win = mlx_new_window(game->mlx, win_w, win_h, "So Long");
+	game->win = mlx_new_window(game->mlx, WIN_W, WIN_H, "So Long");
 	if (!game->win)
 		error_exit(game, "mlx_new_window failed.");
 	mlx_hook(game->win, 2, 1L << 0, handle_key, game);

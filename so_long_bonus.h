@@ -112,6 +112,7 @@ void	player_move_tick(t_game *game);
 
 /* physics_bonus.c */
 void	apply_gravity(t_game *game);
+void	reach_exit(t_game *game);
 
 /* enemy_bonus.c */
 void	add_enemy(t_game *game, int x, int y);

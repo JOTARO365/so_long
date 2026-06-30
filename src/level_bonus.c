@@ -69,6 +69,8 @@ static void	reset_level(t_game *game)
 	game->enemy_tick = 0;
 	game->cam_x = 0;
 	game->cam_y = 0;
+	game->map.width = 0;
+	game->map.height = 0;
 	game->map.players = 0;
 	game->map.collectibles = 0;
 	game->map.exits = 0;
@@ -85,7 +87,7 @@ void	start_level(t_game *game)
 	parse_map(game, path);
 	free(path);
 	validate_map(game);
-	open_window(game);
+	mlx_clear_window(game->mlx, game->win);
 	render_map(game);
 }
 

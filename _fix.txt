@@ -1,0 +1,7 @@
+=== NORM ===
+Setting locale to en_US
+level_bonus.c: OK!
+=== BUILD ===
+cc -Wall -Wextra -Werror -I. -Iminilibx-linux -Ilibft -c src/level_bonus.c -o src/level_bonus.o
+cc -Wall -Wextra -Werror -I. -Iminilibx-linux -Ilibft src/main_bonus.o src/parse_bonus.o src/validate_bonus.o src/render_bonus.o src/player_bonus.o src/physics_bonus.o src/enemy_bonus.o src/level_bonus.o src/error_bonus.o src/free_bonus.o libft/libft.a -Lminilibx-linux -lmlx_Linux -lXext -lX11 -lm -o so_long_bonus
+make_exit=0

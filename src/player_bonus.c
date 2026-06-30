@@ -39,11 +39,7 @@ static void	try_move(t_game *game, int dx)
 		*cell = '0';
 	}
 	else if (*cell == 'E')
-	{
-		ft_printf("You win! Moves: %d\n", game->moves);
-		free_game(game);
-		exit(0);
-	}
+		reach_exit(game);
 	render_map(game);
 }
 

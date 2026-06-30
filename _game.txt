@@ -1,0 +1,236 @@
+Moves: 1
+Moves: 2
+Moves: 3
+Moves: 4
+Moves: 5
+Moves: 6
+Moves: 7
+Moves: 8
+Moves: 9
+Moves: 10
+Moves: 11
+Moves: 12
+Moves: 13
+Moves: 14
+Moves: 15
+Moves: 16
+Moves: 17
+Moves: 18
+Moves: 19
+Level 1 clear! Moves: 19
+Moves: 20
+Moves: 21
+Moves: 22
+Moves: 23
+Moves: 24
+Moves: 25
+Level 2 clear! Moves: 25
+Moves: 26
+Moves: 27
+Moves: 28
+Moves: 29
+Moves: 30
+Moves: 31
+Level 3 clear! Moves: 31
+Moves: 32
+Moves: 33
+Moves: 34
+Moves: 35
+Moves: 36
+Moves: 37
+Level 4 clear! Moves: 37
+Moves: 38
+Moves: 39
+Moves: 40
+Moves: 41
+Moves: 42
+Moves: 43
+Level 5 clear! Moves: 43
+Moves: 44
+Moves: 45
+Moves: 46
+Moves: 47
+Moves: 48
+Moves: 49
+Moves: 50
+Level 6 clear! Moves: 50
+Moves: 51
+Moves: 52
+Moves: 53
+Moves: 54
+Moves: 55
+Moves: 56
+Moves: 57
+Level 7 clear! Moves: 57
+Moves: 58
+Moves: 59
+Moves: 60
+Moves: 61
+Moves: 62
+Moves: 63
+Moves: 64
+Level 8 clear! Moves: 64
+Moves: 65
+Moves: 66
+Moves: 67
+Moves: 68
+Moves: 69
+Moves: 70
+Moves: 71
+Level 9 clear! Moves: 71
+Moves: 72
+Moves: 73
+Moves: 74
+Moves: 75
+Moves: 76
+Moves: 77
+Moves: 78
+Level 10 clear! Moves: 78
+Moves: 79
+Moves: 80
+Moves: 81
+Moves: 82
+Moves: 83
+Moves: 84
+Moves: 85
+Level 11 clear! Moves: 85
+Moves: 86
+Moves: 87
+Moves: 88
+Moves: 89
+Moves: 90
+Moves: 91
+Moves: 92
+Moves: 93
+Moves: 94
+Level 12 clear! Moves: 94
+Moves: 95
+Moves: 96
+Moves: 97
+Moves: 98
+Moves: 99
+Moves: 100
+Moves: 101
+Moves: 102
+Moves: 103
+Level 13 clear! Moves: 103
+Moves: 104
+Moves: 105
+Moves: 106
+Moves: 107
+Moves: 108
+Moves: 109
+Moves: 110
+Moves: 111
+Moves: 112
+Level 14 clear! Moves: 112
+Moves: 113
+Moves: 114
+Moves: 115
+Moves: 116
+Moves: 117
+Moves: 118
+Moves: 119
+Moves: 120
+Moves: 121
+Level 15 clear! Moves: 121
+Moves: 122
+Moves: 123
+Moves: 124
+Moves: 125
+Moves: 126
+Moves: 127
+Moves: 128
+Moves: 129
+Moves: 130
+Level 16 clear! Moves: 130
+Moves: 131
+Moves: 132
+Moves: 133
+Moves: 134
+Moves: 135
+Moves: 136
+Moves: 137
+Moves: 138
+Moves: 139
+Level 17 clear! Moves: 139
+Moves: 140
+Moves: 141
+Moves: 142
+Moves: 143
+Moves: 144
+Moves: 145
+Moves: 146
+Moves: 147
+Moves: 148
+Moves: 149
+Moves: 150
+Level 18 clear! Moves: 150
+Moves: 151
+Moves: 152
+Moves: 153
+Moves: 154
+Moves: 155
+Moves: 156
+Moves: 157
+Moves: 158
+Moves: 159
+Moves: 160
+Moves: 161
+Moves: 162
+Moves: 163
+Moves: 164
+Moves: 165
+Moves: 166
+Moves: 167
+Moves: 168
+Moves: 169
+Moves: 170
+Moves: 171
+Moves: 172
+Moves: 173
+Moves: 174
+Moves: 175
+Level 19 clear! Moves: 175
+Moves: 176
+Moves: 177
+Moves: 178
+Moves: 179
+Moves: 180
+Moves: 181
+Moves: 182
+Moves: 183
+Moves: 184
+Moves: 185
+Moves: 186
+Moves: 187
+Moves: 188
+Moves: 189
+Moves: 190
+Moves: 191
+Moves: 192
+Moves: 193
+Moves: 194
+Level 20 clear! Moves: 194
+Moves: 195
+Moves: 196
+Moves: 197
+Moves: 198
+Moves: 199
+Moves: 200
+Moves: 201
+Moves: 202
+Moves: 203
+Moves: 204
+Moves: 205
+Level 21 clear! Moves: 205
+Moves: 206
+Moves: 207
+Moves: 208
+Moves: 209
+Moves: 210
+Moves: 211
+Moves: 212
+Moves: 213
+You lose! Moves: 213
+game_exit=0

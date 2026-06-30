@@ -40,6 +40,18 @@ static void	move_vert(t_game *game, int new_y, int dir)
 	game->py = game->py_px / TILE;
 }
 
+void	reach_exit(t_game *game)
+{
+	if (game->level <= 0)
+	{
+		ft_printf("You win! Moves: %d\n", game->moves);
+		free_game(game);
+		exit(0);
+	}
+	ft_printf("Level %d clear! Moves: %d\n", game->level, game->moves);
+	next_level(game);
+}
+
 static void	check_tile(t_game *game)
 {
 	char	tile;
@@ -51,16 +63,7 @@ static void	check_tile(t_game *game)
 		game->map.grid[game->py][game->px] = '0';
 	}
 	else if (tile == 'E' && game->collected >= game->map.collectibles)
-	{
-		if (game->level <= 0)
-		{
-			ft_printf("You win! Moves: %d\n", game->moves);
-			free_game(game);
-			exit(0);
-		}
-		ft_printf("Level %d clear! Moves: %d\n", game->level, game->moves);
-		next_level(game);
-	}
+		reach_exit(game);
 }
 
 void	apply_gravity(t_game *game)
